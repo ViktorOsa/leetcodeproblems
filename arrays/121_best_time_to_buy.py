@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         if(len(prices) == 0):
@@ -14,3 +16,9 @@ class Solution:
                     max_profit = curr_profit
         
         return max_profit
+
+solution = Solution()
+print (solution.maxProfit([7,1,5,3,6,4]))
+
+# Time complexity: O(n)
+# Sapce complexity: O(1)
