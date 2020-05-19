@@ -15,4 +15,4 @@ class Solution:
 
 
 # Time complexity: O(nlog(n))
-# Sapce complexity: O(n)
+# Sapce complexity: O(1) - не считаем резалт

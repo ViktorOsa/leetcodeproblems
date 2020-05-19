@@ -57,7 +57,7 @@ class Solution:
         return nums1
             
 # Time: O(m+n)
-# Space: O(1)
+# Space: O(1) - идём справа
 
 solution = Solution()
 print (solution.merge_three_pointers([1,2,3,0,0,0],3,[2,5,6],3))
