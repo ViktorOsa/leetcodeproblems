@@ -6,18 +6,20 @@ class Solution:
         
         if not intervals:
             return 0
-        
+        # sorting 
         intervals.sort(key = lambda x:x[0])
         
         result = []
-        
+        # push first interval (END OF IT)
         heapq.heappush(result, intervals[0][1])
         
+        # go from 1 to N
         for interval in intervals[1:]:
             
-            if result[0] <=interval[0]:
-                heapq.heappop(result)
-                
+            if result[0] <=interval[0]: # start of NEXT after prev EARLIST FREE
+                heapq.heappop(result) # remove earliest !
+
+            # always PUSH end of NEW INTERVAL    
             heapq.heappush(result, interval[1])
         
         return len(result)
