@@ -6,7 +6,6 @@ class Solution:
         i = 0
         j = len(s) - 1
         
-        c = 1
         while i < j:
             if s[i] != s[j]:
                 tmp1 = s[i+1:j+1]
