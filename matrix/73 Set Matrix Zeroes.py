@@ -10,27 +10,25 @@ class Solution:
         
         m = len(matrix) # number of raws
         n = len(matrix[0]) # number of columns
-
-        set_i_j = set()
         
+        set_raws = set()
+        set_cols = set()
+                
         for i in range(m):
             for j in range(n):
                 if matrix[i][j] == 0:
-                    set_i_j.add((i, j))
+                    set_raws.add(i)
+                    set_cols.add(j)
         
-        while set_i_j:
-            i, j = set_i_j.pop()
-            self.setZeroesHelper(matrix, i, j, m, n)
+        for i in range(m):
+            for j in range(n):
+                if i in set_raws or j in set_cols:
+                    matrix[i][j] = 0 
+
+# TIME O(m*n)
+# SPACE ( m + n)
         
-               
-    def setZeroesHelper(self, matrix, i, j, m, n):
-        
-        # set all values in a column to 0 
-        for k in range(0,m):
-            matrix[k][j] = 0
-                
-        # set all values in a raw to 0 
-        for k in range(0,n):
-            matrix[i][k] = 0 
+            
+
         
             
