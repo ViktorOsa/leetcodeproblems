@@ -1,5 +1,9 @@
 from typing import List
 
+
+# Input: "abcabcbb"
+# Output: 3 
+# Explanation: The answer is "abc", with the length of 3. 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         
