@@ -64,4 +64,5 @@ class Solution:
         helper(root, 0)
         return levels
 
-# SAme time and space complexity
+# TIME O(n)
+# SPACE O(n)
