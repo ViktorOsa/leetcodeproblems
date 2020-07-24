@@ -30,4 +30,4 @@ class Solution:
         return depth
 
 # TIME O(n)
-# SPACE O(n) - worst, O(log n) - average
+# SPACE O(n) - worst, O(log n) - average, because its height of the balanced tree

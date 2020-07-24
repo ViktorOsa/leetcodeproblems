@@ -37,7 +37,6 @@ class Solution:
 # TIME O(n)
 # SPACE O(n)
 
-
     def levelOrder_recursive(self, root):
         """
         :type root: TreeNode
