@@ -25,5 +25,5 @@ class Solution:
 
 solution = Solution()
 print (solution.search([4,5,6,7,0,1,2], 0))
-# Time Complexity: O(log(n))
+# Time Complexity: O(log(n)) - binary search tree
 # Space Complexity: O(1)
