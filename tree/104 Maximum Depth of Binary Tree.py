@@ -18,7 +18,7 @@ class Solution:
         stack = [(1, root)]
         
         while len(stack) != 0:
-            cur_depth, node = stack.pop(0)
+            cur_depth, node = stack.pop() # pop last element, also LIFO
             if node is not None:
                 depth = max(depth, cur_depth)
             
