@@ -1,0 +1,30 @@
+private int[] amazonTurnstile(int numCustomers, int[] arrTime, int[] direction) {
+    int[] output = new int[numCustomers];
+    int prev = 1;
+    int i = 0, j = 1, k = 0;
+
+    while (j < numCustomers) {
+        if (arrTime[i] == arrTime[j]) {
+            if (direction[i] == prev) { // i goes first
+                output[i] = k;
+                arrTime[j]++;
+                i = j;
+                j++;
+            } else { // j goes first
+                output[j] = k;
+                arrTime[i]++;
+                j++;
+            }
+
+        } else {
+            output[i] = k;
+            prev = direction[i];
+            i = j;
+            j++;
+
+        }
+        k++;
+    }
+    output[i] = Math.max(k, arrTime[i]);
+    return output;
+}

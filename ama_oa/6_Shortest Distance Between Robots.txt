@@ -1,0 +1,62 @@
+
+link: https://www.geeksforgeeks.org/closest-pair-of-points-using-divide-and-conquer-algorithm/
+
+Solution:
+
+Time Complexity: O(NlogN)
+Space Complexity: O(N)
+
+import math
+# helper function to find distance between 2 pts (note this is squared distance)
+def squared_distance(point1, point2):
+    return math.pow(point1[0]-point2[0], 2) + math.pow(point1[1]-point2[1], 2)
+
+# helper to recursively find min distances on left and right of midpoint
+def min_helper(points):
+    # once subproblem is small enough, just brute force min dist
+    if len(points) <= 4:
+        min_dist = float('inf')
+        for i in range(len(points)):
+            for j in range(i+1, len(points)):
+                # make sure we don't consider same position of robots case as per req
+                if squared_distance(points[i], points[j]) > 0:
+                    min_dist = min(min_dist, squared_distance(points[i], points[j]))
+        return min_dist
+    else:
+        mid = len(points) // 2
+        dl = min_helper(points[:mid+1])
+        dr = min_helper(points[mid+1:])
+        d = min(dl, dr)
+        return d
+
+def closest_pair(points):
+    # sort pts by x coord
+    points.sort(key=lambda x: x[0])
+
+    mid = len(points) // 2
+    # grab closest distances on left and right of middle pt
+    dl = min_helper(points[:mid+1])
+    dr = min_helper(points[mid+1:])
+    # our first candidate is the min of these 2 distances
+    d = min(dl, dr)
+
+    # create list of points that have distance to midpoint < d
+    # then sort by y coord
+    strip = [point for point in points if squared_distance(point, points[mid]) < d]
+    strip.sort(key=lambda x: x[1])
+
+    # compare each element of strip with every other element only if 
+    # the y coords have a smaller dist than the current min found
+    min_strip_dist = d
+    for i in range(len(strip)):
+        j = i+1
+        while j < len(strip) and strip[j][1] - strip[i][1] < min_strip_dist:
+            # make sure we don't consider same position of robots case as per req
+            if squared_distance(strip[i], strip[j]) > 0:
+                min(min_strip_dist, squared_distance(strip[i], strip[j]))
+            j += 1
+    
+    return min(d, min_strip_dist)
+
+print(closest_pair([(0,0), (1,1), (2,4)]))
+print(closest_pair([(2,3), (12,30), (40,50), (5,1), (12,10), (3,4)]))

@@ -19,7 +19,6 @@ class Solution:
         slow = dummy
         fast = dummy
         
-        i = 1
         for i in range(n+1):
             fast = fast.next
             

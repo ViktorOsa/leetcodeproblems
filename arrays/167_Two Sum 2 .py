@@ -11,6 +11,8 @@ class Solution:
                 return [p1+1, p2+1]
             elif sum_numbers > target:
                 p2 -= 1
+            else:
+                p1 += 1
 
 #Time O(n)
 #Space O(1)
