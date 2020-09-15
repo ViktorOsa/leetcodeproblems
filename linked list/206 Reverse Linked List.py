@@ -23,6 +23,11 @@ class Solution:
 # 
 # TIME : O(n)
 # SPACE: O(1)
+
+
+    # 1 -> 2 - > 3 - None
+    # prev = rev (2) prev = rev (3) / prev = 3 3->2 -> None / 
+    # 2 -> 1 - None
     def reverseList(self, head: ListNode) -> ListNode:
         if head is None or head.next is None:
             return head

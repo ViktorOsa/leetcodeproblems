@@ -35,10 +35,10 @@ def lowestCommonAncestor(root, p, q):
     parent_val = root.val
 
     if p < parent_val and q < parent_val:
-        return lowestCommonAncestor(root.left, p, q)
+        root = lowestCommonAncestor(root.left, p, q)
 
     if p > parent_val and q > parent_val:
-        return lowestCommonAncestor(root.right, p, q)
+        root = lowestCommonAncestor(root.right, p, q)
 
     return root
         
