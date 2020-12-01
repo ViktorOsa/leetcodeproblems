@@ -1,3 +1,3 @@
 # leetcodeproblems
-LeetCode Problems to train algorithms and data structures.
+LeetCode Problems to practise algorithms and data structures.
 Using Python.
